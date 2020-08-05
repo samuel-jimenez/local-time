@@ -1631,7 +1631,8 @@ The value of this variable should have the methods `local-time::clock-now', and
                          (allow-missing-date-part allow-missing-elements)
                          (allow-missing-time-part allow-missing-elements)
                          (allow-missing-timezone-part allow-missing-elements)
-                         (offset 0))
+                         (offset 0)
+                         (timezone *default-timezone*))
   "Parse a timestring and return the corresponding TIMESTAMP.
 See split-timestring for details. Unspecified fields in the
 timestring are initialized to their lowest possible value,
@@ -1663,7 +1664,8 @@ in the input string."
          :offset (if offset-hour
                      (+ (* offset-hour 3600)
                         (* (or offset-minute 0) 60))
-                     offset))))))
+                     offset)
+         :timezone timezone)))))
 
 (defun ordinalize (day)
   "Return an ordinal string representing the position
