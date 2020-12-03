@@ -793,10 +793,7 @@ day given by OFFSET in the week that contains TIME."
                       time
                       (let ((position (position offset +day-names-as-keywords+ :test #'eq)))
                         (assert position (position) "~S is not a valid day name" offset)
-                        (let ((offset (+ (- (if (zerop day-of-week)
-                                                7
-                                                day-of-week))
-                                         position)))
+                        (let ((offset (- position day-of-week)))
                           (incf day offset)
                           (cond
                             ((< day 1)
