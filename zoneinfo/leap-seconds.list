@@ -63,10 +63,10 @@
 #		of Time," Proc. of the IEEE, Vol. 79, pp. 894-905,
 #		July, 1991. <http://dx.doi.org/10.1109/5.84965>
 #		reprinted in:
-#		   Christine Hackman and Donald B Sullivan (eds.)
-#		   Time and Frequency Measurement
-#		   American Association of Physics Teachers (1996)
-#		   <http://tf.nist.gov/general/pdf/1168.pdf>, pp. 75-86
+#			Christine Hackman and Donald B Sullivan (eds.)
+#			Time and Frequency Measurement
+#			American Association of Physics Teachers (1996)
+#			<http://tf.nist.gov/general/pdf/1168.pdf>, pp. 75-86
 #
 #	4. The decision to insert a leap second into UTC is currently
 #	the responsibility of the International Earth Rotation and
@@ -103,9 +103,9 @@
 #	timestamps computed as follows:
 #
 #	...
-#	30 June 1972 23:59:59 (2287785599, first time):	TAI= UTC + 10 seconds
-#	30 June 1972 23:59:60 (2287785599,second time):	TAI= UTC + 11 seconds
-#	1  July 1972 00:00:00 (2287785600)		TAI= UTC + 11 seconds
+#		30 June 1972 23:59:59 (2287785599, first time):	TAI= UTC + 10 seconds
+#		30 June 1972 23:59:60 (2287785599,second time):	TAI= UTC + 11 seconds
+#		1  July 1972 00:00:00 (2287785600)		TAI= UTC + 11 seconds
 #	...
 #
 #	If your system realizes the leap second by repeating 00:00:00 UTC twice
@@ -114,9 +114,9 @@
 #	00:00:00 UTC is used. Thus, using the same example as above:
 #
 #	...
-#       30 June 1972 23:59:59 (2287785599):		TAI= UTC + 10 seconds
-#       30 June 1972 23:59:60 (2287785600, first time):	TAI= UTC + 10 seconds
-#       1  July 1972 00:00:00 (2287785600,second time):	TAI= UTC + 11 seconds
+#		30 June 1972 23:59:59 (2287785599):		TAI= UTC + 10 seconds
+#		30 June 1972 23:59:60 (2287785600, first time):	TAI= UTC + 10 seconds
+#		1  July 1972 00:00:00 (2287785600,second time):	TAI= UTC + 11 seconds
 #	...
 #
 #	in both cases the use of timestamps based on TAI produces a smooth
@@ -148,7 +148,7 @@
 #		Boulder, Colorado
 #		Judah.Levine@nist.gov
 #
-#	Last Update of leap second values:   8 July 2016
+#	Last Update of leap second values:	8 July 2016
 #
 #	The following line shows this last update date in NTP timestamp
 #	format. This is the date on which the most recent change to
@@ -156,7 +156,7 @@
 #	be identified by the unique pair of characters in the first two
 #	columns as shown below.
 #
-#$	 3676924800
+#$	3676924800
 #
 #	The NTP timestamps are in units of seconds since the NTP epoch,
 #	which is 1 January 1900, 00:00:00. The Modified Julian Day number
@@ -252,4 +252,4 @@
 #	the hash line is also ignored in the
 #	computation.
 #
-#h 	064356a8 39268b92 76e4d5ef 3e22fae1 0cca529c
+#h		064356a8 39268b92 76e4d5ef 3e22fae1 0cca529c
