@@ -28,6 +28,7 @@ jobs:
           command: |
             ros install hu.dwim.stefil
             ros install cl-coveralls
+#Project Settings>Environment Variables>COVERALLS_REPO_TOKEN
       - run:
           name: init test
           command: |
@@ -55,6 +56,6 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - build:
-          context: Coveralls #Organization Settings>Contexts>Environment Variables>COVERALLS_REPO_TOKEN
+      - build
+
 
