@@ -1,4 +1,8 @@
-							LOCAL-TIME
+# LOCAL-TIME
+
+[![Build Status](https://circleci.com/gh/samuel-jimenez/local-time.svg?style=svg)](https://circleci.com/gh/samuel-jimenez/local-time)
+[![Coverage Status](https://coveralls.io/repos/github/samuel-jimenez/local-time/badge.svg?branch=master)](https://coveralls.io/github/samuel-jimenez/local-time?branch=master)
+
 
 See the "COPYING" file for information about legal issues of copying
 and using this library.

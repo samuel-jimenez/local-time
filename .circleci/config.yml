@@ -14,30 +14,39 @@ jobs:
       - run:
           name: set path
           command: echo "export PATH=$LISP_IMPLS_BIN:$PATH" >> $BASH_ENV
-      - run:
-          name: build-clisp
-          command: ros install ccl-bin
+
       - run:
           name: build-ros
           command: ros run -- --version
+
+      - run:
+          name: build-clisp
+          command: ros install ccl-bin
+
       - run:
           name: install testing framework
-          command: ros install hu.dwim.stefil
+          command: |
+            ros install hu.dwim.stefil
+            ros install cl-coveralls
       - run:
           name: init test
           command: |
             ros init test
             cat >> test.ros \<< EOF
+            (require :cl-coveralls)
             (defun main (&rest argv)
               (declare (ignore argv))
-            (asdf:test-system :local-time))
+              (coveralls:with-coveralls (:exclude (list "t"))
+                (or (asdf:test-system :local-time)
+                  (uiop:quit -1))))
             EOF
+
       - run:
           name: run-sbcl
           command: |
             ros config set default.lisp sbcl-bin
-            ./test.ros
-#          command: COVERALLS=true ./test.ros
+            COVERALLS=true ./test.ros
+
       - run:
           name: run-clisp
           command: |
@@ -46,4 +55,6 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - build
+      - build:
+          context: Coveralls #Organization Settings>Contexts>Environment Variables>COVERALLS_REPO_TOKEN
+
