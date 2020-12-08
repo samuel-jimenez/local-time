@@ -130,7 +130,7 @@
 (deftest test/adjust-timestamp/bug3 ()
 	(let* ((timestamp (parse-timestring "2009-03-01T01:00:00.000000+00:00"))
 				(modified-timestamp (adjust-timestamp timestamp (timezone +utc-zone+) (offset :day-of-week :monday))))
-		(is (timestamp= (parse-timestring "2009-02-23T01:00:00.000000+00:00") modified-timestamp)))
+		(is (timestamp= (parse-timestring "2009-03-02T01:00:00.000000+00:00") modified-timestamp)))
 	(let* ((timestamp (parse-timestring "2009-03-04T01:00:00.000000+00:00"))
 				(modified-timestamp (adjust-timestamp timestamp (timezone +utc-zone+) (offset :day-of-week :monday))))
 		(is (timestamp= (parse-timestring "2009-03-02T01:00:00.000000+00:00") modified-timestamp))))
