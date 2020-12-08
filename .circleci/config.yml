@@ -1,9 +1,11 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-# Define the jobs we want to run for this project
+orbs:
+  win: circleci/windows@2.2.0
+
 jobs:
-  build:
+  build-linux:
     machine:
       image: ubuntu-2004:202010-01 # recommended linux image
     steps:
@@ -53,9 +55,44 @@ jobs:
           command: |
             ros config set default.lisp ccl-bin
             ./test.ros
+
+
+  build-win:
+    executor:
+      name: win/default
+    steps:
+      - checkout
+      - run:
+          name: install scoop
+          command:  |
+            $ProgressPreference = "SilentlyContinue" # to solve iwr : Win32 internal error "Access is denied" 0x5 occurred while reading the console output buffer.
+            iwr -useb get.scoop.sh | iex
+      - run:
+          name: install roswell
+          command:  |
+            $ProgressPreference = "SilentlyContinue"
+            scoop install roswell
+      - run:
+          name: install testing framework
+          command: ros install hu.dwim.stefil
+      - run: |
+          ros init test
+          $String1 = @"
+          (defun main (&rest argv)
+            (declare (ignore argv))
+            (push "C:/Users/circleci/project"
+              ql:*local-project-directories*)
+            (asdf:test-system :ci-test))
+          "@
+          Add-Content "test.ros" $String1
+      - run:
+          name: run-sbcl
+          command: ros -- test.ros
+#          command: COVERALLS=true ./test.ros
 workflows:
   build_and_test:
     jobs:
-      - build
+      - build-linux
+      - build-win
 
 
