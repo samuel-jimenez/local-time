@@ -82,13 +82,12 @@ jobs:
             (declare (ignore argv))
             (push "C:/Users/circleci/project"
               ql:*local-project-directories*)
-            (asdf:test-system :ci-test))
+            (asdf:test-system :local-time))
           "@
           Add-Content "test.ros" $String1
       - run:
           name: run-sbcl
           command: ros -- test.ros
-#          command: COVERALLS=true ./test.ros
 workflows:
   build_and_test:
     jobs:
