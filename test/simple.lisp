@@ -94,7 +94,7 @@
 							(timestamp-to-universal (universal-to-timestamp now))))))
 
 (deftest test/year-difference ()
-	(let ((a (parse-timestring "2006-01-01T00:00:00"))
+	(let ((a (parse-timestring "2006-01-02T00:00:00"))
 				(b (parse-timestring "2001-01-01T00:00:00")))
 		(is (= 5 (timestamp-whole-year-difference a b))))
 
