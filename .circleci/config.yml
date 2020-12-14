@@ -40,8 +40,11 @@ jobs:
             (defun main (&rest argv)
               (declare (ignore argv))
               (coveralls:with-coveralls (:exclude (list "t"))
-                (or (asdf:test-system :local-time)
-                  (uiop:quit -1))))
+                (handler-case
+                  (asdf:test-system :local-time)
+                  (condition (msg)
+                    (print msg)
+                    (uiop:quit -1)))))
             EOF
 
       - run:
@@ -82,7 +85,11 @@ jobs:
             (declare (ignore argv))
             (push "C:/Users/circleci/project"
               ql:*local-project-directories*)
-            (asdf:test-system :local-time))
+            (handler-case
+              (asdf:test-system :local-time)
+              (condition (msg)
+                (print msg)
+                (uiop:quit -1))))
           "@
           Add-Content "test.ros" $String1
       - run:
