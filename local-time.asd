@@ -9,7 +9,8 @@
 												:serial t
 												:components (
 																	(:file "package")
-																	(:file "local-time")))))
+																	(:file "local-time")
+																	(:file "reader")))))
 
 (defsystem "local-time/test"
 	:version "1.0.6"

@@ -93,4 +93,5 @@
 					#:astronomical-julian-date
 					#:modified-julian-date
 					#:astronomical-modified-julian-date
-					#:zone-name))
+					#:zone-name
+					#:enable-local-time-syntax))
