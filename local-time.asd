@@ -28,4 +28,5 @@
 													(:file "comparison")
 													(:file "formatting")
 													(:file "parsing")
+													(:file "reader")
 													(:file "timezone")))))

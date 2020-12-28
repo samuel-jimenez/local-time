@@ -15,6 +15,10 @@ global value but might have a dynamically bound value."
 (defvar-unbound *stream*
 	"Bound to the stream which is read from while parsing a string.")
 
+(defvar *previous-readtables* nil
+	"A stack which holds the previous readtables that have been pushed
+here by ENABLE-LOCAL-TIME-SYNTAX.")
+
 
 (defmacro read-char* ()
 	"Convenience macro because we always read from the same string with
