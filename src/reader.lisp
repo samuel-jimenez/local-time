@@ -58,7 +58,8 @@ VECTOR-PUSH-EXTEND."
 													(compute-result))
 												(t
 													(vector-push-extend next-char collector)))))))
-	(apply #'encode-timestamp result)))
+	(apply #'encode-timestamp
+		(concatenate 'list result '(:offset 0)))));since we're reading in Zulu, keep it in Zulu
 
 (defun %enable-local-time-syntax (&key (modify-*readtable* T))
 	"Internal function used to enable reader syntax and store current
